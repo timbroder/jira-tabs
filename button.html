@@ -1,12 +1,5 @@
 Drag this link to your Bookmarks bar: 
-<a href="javascript: 
-	function tab(where){ 
-		var elms = document.getElementById(where).getElementsByTagName('tr'); 
-		var conf=confirm('Do you want to open '+(elms.length-1)+' Jiras?'); 
-		if(conf){ for(var i=1; i<elms.length; i++){
-			var url = elms[i].getElementsByClassName('summary')[0].getElementsByTagName('a')[0];
-			window.open(url.href);}  } } tab('issuetable');
-">JiraTabs</a>
+<a href="javascript: function tab(a){"use strict";var b=document.getElementById(a).getElementsByTagName("tr"),c=window.confirm("Do you want to open "+(b.length-1)+" Jiras?");if(c)for(var d=1;d<b.length;d++){var e=b[d].getElementsByClassName("summary")[0].getElementsByTagName("a")[0];window.open(e.href)}}tab("issuetable")">JiraTabs</a>
 
 <!-- raw
 function tab(where)
