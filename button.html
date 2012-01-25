@@ -1,0 +1,4 @@
+Drag this link to your Bookmarks bar: <a href="javascript: function tab(where){ var elms = document.getElementById(where).getElementsByTagName('tr'); var conf=confirm('Do you want to open '+(elms.length-1)+' Jiras?'); if(conf){ for(var i=1; i<elms.length; i++){ var url = elms[i].getElementsByClassName('summary')[0].getElementsByTagName('a')[0]; window.open(url.href);}  } } tab('issuetable');">JiraTabs</a>
+
+
+
