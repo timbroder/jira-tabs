@@ -1,18 +1,38 @@
 Drag this link to your Bookmarks bar: 
-<a href='javascript: function tab(a){"use strict";var b=document.getElementById(a).getElementsByTagName("tr"),c=window.confirm("Do you want to open "+(b.length-1)+" Jiras?");if(c)for(var d=1;d<b.length;d++){var e=b[d].getElementsByClassName("summary")[0].getElementsByTagName("a")[0];window.open(e.href)}}tab("issuetable")'>JiraTabs</a>
+<a href='javascript:function tab(a){"use strict";var b=document.getElementById(a).getElementsByTagName("tr"),c=window.confirm("Do you want to open "+(b.length-1)+" Jiras?");if(c)for(var d=1;d<b.length;d++){var e=b[d].getElementsByClassName("summary")[0].getElementsByTagName("a")[0];if(window.navigator.vendor=="Google Inc."){var f=document.createEvent("MouseEvents");f.initMouseEvent("click",!1,!0,window,0,0,0,0,0,!0,!1,!1,!0,0,null),e.dispatchEvent(f)}else window.open(e.href)}}tab("issuetable")'>JiraTabs</a>
+<br/>
+Then, whenever you are in the filter view of jira, click the button and all the visible jira's will open in new tabs.
 
 <!-- raw
 function tab(where)
 {
-  "use strict";
-  var elms = document.getElementById(where).getElementsByTagName('tr'),
-      conf = window.confirm('Do you want to open '+(elms.length-1)+' Jiras?'); 
-  if (conf) {
-    for (var i=1; i<elms.length; i++) {
-      var url = elms[i].getElementsByClassName('summary')[0].getElementsByTagName('a')[0];
-      window.open(url.href);
-    }
-  } 
+	"use strict";
+	var elms = document.getElementById(where).getElementsByTagName('tr'),
+		conf = window.confirm('Do you want to open '+(elms.length-1)+' Jiras?'); 
+	if (conf) {
+		for ( var i=1; i<elms.length; i++ ) {
+			var elm = elms[i].getElementsByClassName('summary')[0].getElementsByTagName('a')[0];
+			if (window.navigator.vendor == 'Google Inc.') {
+				var clk = document.createEvent("MouseEvents");
+				clk.initMouseEvent("click", false, true, window, 0, 0, 0, 0, 0, true, false, false, true, 0, null);
+				elm.dispatchEvent(clk);
+			}
+			else {
+				window.open(elm.href);
+			}
+		}
+	} 
 }
 tab('issuetable');
 -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-17099661-7', 'broderboy.github.io');
+  ga('send', 'pageview');
+
+</script>
