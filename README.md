@@ -18,4 +18,4 @@ Then, whenever you are in the filter view of jira, click the button and all the 
 * Close the tab
 * Continue
 
-More about how my Jira process [here](http://broderboy.github.io/jira-presentation/)
+More about how my Jira process [here](http://timbroder.github.io/jira-presentation/)
